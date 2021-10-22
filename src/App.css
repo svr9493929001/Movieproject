@@ -1,0 +1,43 @@
+body {
+  display: grid;
+  margin: 24px;
+  font-family: sans-serif;
+  /* background-color: black; */
+}
+img {
+  height: 470px;
+  width: 300px;
+  object-fit: cover;
+}
+.App {
+  /* display: grid;
+  grid-template-columns: repeat(2,1fr); */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.movie-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container {
+  width: min-content;
+  margin: 20px;
+}
+.movie-detail-container {
+  width: 50rem;
+  margin: 10px;
+}
+.main-menu {
+  display: flex;
+  justify-content: space-evenly;
+  text-transform: uppercase;
+}
+.main-menu > a {
+  color: white;
+  text-decoration: none;
+}
+.main-content {
+  margin: 10px;
+}
