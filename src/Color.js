@@ -3,7 +3,7 @@ import * as React from "react";
 import { ColorBox } from "./ColorBox";
 
 export function Color() {
-  const [color, setColor] = useState();
+  const [color, setColor] = useState("");
   const styes = {
     backgroundColor: color,
     fontSize: "1.5rem",

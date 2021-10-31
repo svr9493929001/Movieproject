@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import DeleteIcon from "@mui/icons-material/Delete";
 import AlarmIcon from "@mui/icons-material/Alarm";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import MailIcon from "@mui/icons-material/Mail";
@@ -32,7 +31,6 @@ import {
 import { AppBar, Toolbar } from "@mui/material";
 import { style } from "@mui/system";
 import { Color } from "./Color";
-import { Movie } from "./Movie";
 import { MovieDetails } from "./MovieDetails";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { getFromStroage, updateStoredMovies } from "./getFromStroage";
@@ -40,92 +38,75 @@ import { names } from "./names";
 import { Addmovie } from "./Addmovie";
 import { Editmovie } from "./EditMovies";
 import Edit from "@mui/icons-material/Edit";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { Movielist } from "./Movielist";
+import Paper from "@mui/material/Paper";
+import { About } from "./About";
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/icon?family=Material+Icons"
 />;
-localStorage.setItem("movies", JSON.stringify(names));
-function App() {
-  const { id } = useParams();
-  const movie = getFromStroage("movies")[id];
-  const [newMovie, setNewMovie] = useState(getFromStroage("movies"));
-  const Type ="Edit";
 
+function App() {
+  const [Theam,setTheam] = useState(true)
+const theme = createTheme({
+  palette : {
+    mode : Theam ? "light"  : "dark",
+  }
+});
   return (
-    <section>
-      <AppBar position="static">
-        <Toolbar className="main-menu">
-          <Link to="/Home">Home</Link>
-          <Link to="/Movies">Movies</Link>
-          <Link to="/ADDMOVIES">Add Movies</Link>
-          <Link to="/About">About</Link>
-          <Link to="/Colorgame">Color game</Link>
-        </Toolbar>
-      </AppBar>
-      <div classname="main-content">
-        <Switch>
-          <Route exact path="/Home">
-            Home
-          </Route>
-          <Route exact path="/Movies">
-            Movies Page
-            <div className="App">
-              {newMovie.map((movies, i) => {
-                return (
-                  <div>
-                    <Movie
-                      deleteMovieButton={
-                        <IconButton
-                          style={{ marginLeft: "auto" }}
-                          aria-label="delete"
-                          color="error"
-                          component="span"
-                          onClick={() => {
-                            const removeidx = i;
-                            setNewMovie(
-                              newMovie.filter((mv, i) => i != removeidx)
-                            );
-                            updateStoredMovies(
-                              newMovie.filter((mv, idx) => idx != removeidx)
-                            );
-                          }}
-                        >
-                          <DeleteIcon />
-                        </IconButton>
-                      }
-                      key={i}
-                      name={movies.movie}
-                      poster={movies.poster}
-                      description={movies.description}
-                      id={i}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </Route>
-          <Route exact path="/Movies/:id">
-            <MovieDetails />
-          </Route>
-          <Route exact path="/About">
-            About Page
-          </Route>
-          <Route exact path="/Colorgame">
-            <Color />
-          </Route>
-          <Route exact path="/Movies/edit/:id">
-            Edit movie
-            <Editmovie newMovie={newMovie} setNewMovie={setNewMovie} />
-          </Route>
-          <Route path="/ADDMOVIES">
-            Add Movies
-            <Addmovie newMovie={newMovie} setNewMovie={setNewMovie} />
-          </Route>
-        </Switch>
-      </div>
-    </section>
+    <ThemeProvider theme={theme}>
+      <Paper>
+        <section>
+          <AppBar position="static">
+            <Toolbar className="main-menu">
+              <Link to="/Home">Home</Link>
+              <Link to="/Movies">Movies</Link>
+              <Link to="/ADDMOVIES">Add Movies</Link>
+              <Link to="/About">About</Link>
+              <Link to="/Colorgame">Color game</Link>
+              <Button>
+                <IconButton>
+                  <DarkModeIcon onClick={() => setTheam(!Theam)}></DarkModeIcon>
+                </IconButton>
+              </Button>
+            </Toolbar>
+          </AppBar>
+          <div classname="main-content">
+            <Switch>
+              <Route exact path="/Home">
+                Home
+              </Route>
+              <Route exact path="/Movies">
+                Movies Page
+                <Movielist></Movielist>
+              </Route>
+              <Route exact path="/Movies/:id">
+                <MovieDetails />
+              </Route>
+              <Route exact path="/About">
+                About Page
+                <About />
+              </Route>
+              <Route exact path="/Colorgame">
+                <Color />
+              </Route>
+              <Route exact path="/Movies/edit/:id">
+                Edit movie
+                <Editmovie />
+              </Route>
+              <Route path="/ADDMOVIES">
+                Add Movies
+                <Addmovie />
+              </Route>
+            </Switch>
+          </div>
+        </section>
+      </Paper>
+    </ThemeProvider>
   );
 }
-
 export default App;
-

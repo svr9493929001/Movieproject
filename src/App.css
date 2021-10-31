@@ -1,6 +1,6 @@
 body {
   display: grid;
-  margin: 24px;
+  margin: 0px;
   font-family: sans-serif;
   /* background-color: black; */
 }
@@ -11,7 +11,7 @@ img {
 }
 .App {
   /* display: grid;
-  grid-template-columns: repeat(2,1fr); */
+  grid-template-columns: repeat(4,1fr); */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

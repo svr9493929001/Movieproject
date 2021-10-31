@@ -1,8 +1,9 @@
 // Concept
 // Keep your state and Stroage in Sync
 // All the CRUD, Read Update Delete, movie and localstorage sould be in Sync
-export const names = [
+export const movies = [
   {
+    id: "1",
     movie: "Inception",
     trailer: "https://www.youtube.com/embed/YoHD9XEInc0",
     poster:
@@ -11,6 +12,7 @@ export const names = [
       "Cobb steals information from his targets by entering their dreams. Saito offers to wipe clean Cobb's criminal history as payment for performing an inception on his sick competitor's son.",
   },
   {
+    id: "2",
     movie: "Wolf of wall street",
     trailer: "https://www.youtube.com/embed/iszwuX1AK6A",
     poster:
@@ -19,6 +21,7 @@ export const names = [
       "Introduced to life in the fast lane through stockbroking, Jordan Belfort takes a hit after a Wall Street crash. He teams up with Donnie Azoff, cheating his way to the top as his relationships slide.",
   },
   {
+    id: "3",
     movie: "Interstellar",
     trailer: "https://www.youtube.com/embed/zSWdZVtXT7E",
     poster:
@@ -27,6 +30,7 @@ export const names = [
       "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
   },
   {
+    id: "4",
     movie: "Venom: Let There Be Carnage",
     trailer: "https://www.youtube.com/embed/-FmWuCgJmxo",
     poster:
