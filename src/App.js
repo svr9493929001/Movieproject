@@ -21,7 +21,7 @@ import IconButton from "@mui/material/IconButton";
 // import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 // import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
-  //BrowserRouter as Router,
+  BrowserRouter as Router,
   Switch,
   //Route,
   Link,
@@ -29,19 +29,19 @@ import {
   useHistory,
 } from "react-router-dom";
 import { AppBar, Toolbar } from "@mui/material";
-import { style } from "@mui/system";
+// import { style } from "@mui/system";
 import { Color } from "./Color";
 import { MovieDetails } from "./MovieDetails";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { getFromStroage, updateStoredMovies } from "./getFromStroage";
-import { names } from "./names";
+// import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+// import { getFromStroage, updateStoredMovies } from "./getFromStroage";
+// import { names } from "./names";
 import { Addmovie } from "./Addmovie";
 import { Editmovie } from "./EditMovies";
-import Edit from "@mui/icons-material/Edit";
+// import Edit from "@mui/icons-material/Edit";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import useMediaQuery from "@mui/material/useMediaQuery";
+// import useMediaQuery from "@mui/material/useMediaQuery";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
+// import CssBaseline from "@mui/material/CssBaseline";
 import { Movielist } from "./Movielist";
 import Paper from "@mui/material/Paper";
 import { About } from "./About";
@@ -98,7 +98,7 @@ const theme = createTheme({
                 Edit movie
                 <Editmovie />
               </Route>
-              <Route path="/ADDMOVIES">
+              <Route exact path="/ADDMOVIES">
                 Add Movies
                 <Addmovie />
               </Route>

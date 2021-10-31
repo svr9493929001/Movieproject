@@ -21,7 +21,7 @@ export function Movie({ name, poster, description, deleteMovieButton, id }) {
   }, [Show]);
   const styles = { display: Show ? "block" : "none" };
   return (
-    <Card className="container">
+    <Card className="container" >
       <img src={poster} />
       <CardContent>
         <h1>
