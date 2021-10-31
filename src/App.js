@@ -21,12 +21,12 @@ import IconButton from "@mui/material/IconButton";
 // import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 // import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
-  BrowserRouter as Route,
+  BrowserRouter as Router,
   Switch,
-  //Route,
+  Route,
   Link,
   //useParams,
-  useHistory,
+  // useHistory,
 } from "react-router-dom";
 import { AppBar, Toolbar } from "@mui/material";
 // import { style } from "@mui/system";
