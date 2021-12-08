@@ -2,25 +2,23 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { getFromStroage, updateStoredMovies } from "./getFromStroage";
 import {
-  BrowserRouter as Router,
   useParams,
   useHistory,
 } from "react-router-dom";
 export function Editmovie() {
   const [newMovie, setNewMovie] = useState({});
   const getMovies = () => {
-    fetch("https://6120e98624d11c001762ee23.mockapi.io/movies/" + id, {
+    fetch("https://movie-app-srivardhan.herokuapp.com/movies/" + id, {
       method: "GET",
     })
       .then((data) => data.json())
       .then((mvs) => {
         setNewMovie(mvs);
-          setName(mvs.movie);
-          setPoster(mvs.poster);
-          setdescription(mvs.description);
-          setTrailer(mvs.trailer);
+        setName(mvs.name);
+        setPoster(mvs.poster);
+        setdescription(mvs.summary);
+        setTrailer(mvs.trailer);
       });
   };
   useEffect(getMovies, []);
@@ -35,19 +33,19 @@ export function Editmovie() {
     // 1. method - PUT
     // 2. body - data and stringify
     // 3. header - JSON
-    fetch("https://6120e98624d11c001762ee23.mockapi.io/movies/" + id, {
+    fetch("https://movie-app-srivardhan.herokuapp.com/movies/" + id, {
       method: "PUT",
       body: JSON.stringify(editedMovie),
       headers: { "Content-type": "application/json" },
     })
       .then((data) => data.json())
-      .then((data) => history.push("/Movies"));
+      .then(() => history.push("/Movies"));
   }; 
   const editMovie = () => {
     const Movie = {
-      movie: name,
+      name: name,
       poster: poster,
-      description: description,
+      summary: description,
       trailer: trailer,
     };
     updateMovie(Movie);

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-const AboutForm = () => {};
+// const AboutForm = () => {};
 // export function About() {
 //   const validateAboutForm = (values) => {
 //     console.log("validateAboutForm", values);
@@ -131,7 +131,7 @@ export function About() {
       },
     });
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{height: "100vh"}}>
       <input
         id="email"
         name="email"

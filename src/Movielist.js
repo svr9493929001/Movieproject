@@ -6,7 +6,7 @@ import { Movie } from "./Movie";
 export function Movielist() {
   const [newMovie, setNewMovie] = useState([]);
   const getMovies = () => {
-    fetch("https://6120e98624d11c001762ee23.mockapi.io/movies", {
+    fetch("https://movie-app-srivardhan.herokuapp.com/movies", {
       method: "GET",
     })
       .then((data) => data.json())
@@ -15,11 +15,11 @@ export function Movielist() {
   useEffect(getMovies, []);
   const deleteMovies = (id) => {
     console.log(id);
-    fetch("https://6120e98624d11c001762ee23.mockapi.io/movies/" + id, {
+    fetch("https://movie-app-srivardhan.herokuapp.com/movies/" + id, {
       method: "DELETE",
     })
       .then((data) => data.json())
-      .then((data) => getMovies());
+      .then(() => getMovies());
   };
   return (
     <div className="App">
@@ -42,10 +42,10 @@ export function Movielist() {
                   <DeleteIcon />
                 </IconButton>
               }
-              key={movies.id}
-              name={movies.movie}
+              key={i}
+              name={movies.name}
               poster={movies.poster}
-              description={movies.description}
+              description={movies.summary}
               id={movies.id}
             />
           </div>

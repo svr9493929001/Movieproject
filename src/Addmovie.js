@@ -6,13 +6,12 @@ import TextField from "@mui/material/TextField";
 // import * as yup from "yup";
 // import { getFromStroage, updateStoredMovies } from "./getFromStroage";
 import {
-  BrowserRouter as Router,
   useParams,
   useHistory,
 } from "react-router-dom";
 export function Addmovie() {
-  const { id } = useParams();
   const [newMovie, setNewMovie] = useState([]);
+  console.log(newMovie)
   const history = useHistory();
   const [name, setName] = useState("");
   const [poster, setPoster] = useState("");
@@ -22,25 +21,26 @@ export function Addmovie() {
     // 1. method - POST
     // 2. body - data and stringify
     // 3. header - JSON
-    fetch("https://6120e98624d11c001762ee23.mockapi.io/movies", {
+    fetch("https://movie-app-srivardhan.herokuapp.com/movies", {
       method: "POST",
       body: JSON.stringify(newMovie),
       headers: { "Content-type": "application/json" },
     })
       .then((data) => data.json())
-      .then((data) => history.push("/Movies"));
+      .then(() => history.push("/Movies"));
+      console.log(newMovie);
   };
   const addMovie = () => {
     const Movie = {
-      movie: name,
+      name: name,
       poster: poster,
-      description: description,
+      summary: description,
       trailer: trailer,
     };
     createMovie(Movie);
   };
   const getMovies = () => {
-    fetch("https://6120e98624d11c001762ee23.mockapi.io/movies", {
+    fetch("https://movie-app-srivardhan.herokuapp.com/movies", {
       method: "GET",
     })
       .then((data) => data.json())
