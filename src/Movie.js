@@ -13,16 +13,15 @@ import { Counter } from "./Counter";
 
 export function Movie({ name, poster, description, deleteMovieButton, id }) {
   const [Show, setShow] = useState(true);
-  const [Nice, setNice] = useState("");
   const history = useHistory();
   const h = useHistory();
   useEffect(() => {
-    console.log("State or props is changes", Show, Nice);
+    console.log("State or props is changes", Show);
   }, [Show]);
   const styles = { display: Show ? "block" : "none" };
   return (
     <Card className="container">
-      <img src={poster} />
+      <img src={poster} alt="Img not found"/>
       <CardContent>
         <h1>
           {name}{" "}

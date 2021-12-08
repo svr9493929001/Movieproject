@@ -21,8 +21,9 @@ export function Editmovie() {
         setTrailer(mvs.trailer);
       });
   };
-  useEffect(getMovies, []);
+  console.log(newMovie);
   const { id } = useParams("");
+  useEffect(getMovies, [id]);
   const history = useHistory("");
   const [name, setName] = useState("");
   const [poster, setPoster] = useState("");

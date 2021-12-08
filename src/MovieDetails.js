@@ -19,7 +19,7 @@ export function MovieDetails() {
       .then((data) => data.json())
       .then((mvs) => setNewMovie(mvs));
   };
-  useEffect(getMovies, []);
+  useEffect(getMovies, [id]);
   return (
     <div style={{height : "100vh"}}>
       <iframe

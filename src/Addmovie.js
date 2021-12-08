@@ -6,7 +6,6 @@ import TextField from "@mui/material/TextField";
 // import * as yup from "yup";
 // import { getFromStroage, updateStoredMovies } from "./getFromStroage";
 import {
-  useParams,
   useHistory,
 } from "react-router-dom";
 export function Addmovie() {
